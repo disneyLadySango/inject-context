@@ -1,0 +1,1 @@
+export { SearchQueryProvider } from './Provider'

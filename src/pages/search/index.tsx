@@ -6,6 +6,7 @@ import {
   SearchPage as SearchPageComponent,
   Props,
 } from '@/components/SearchPage'
+import { SearchQueryProvider } from 'src/context/SearchQuery'
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -21,6 +22,10 @@ export const getServerSideProps = async (
 const SearchPage: VFC<Props> = (props) => {
   const router = useRouter()
 
-  return <SearchPageComponent {...props} searchQuery={router.query} />
+  return (
+    <SearchQueryProvider data={props.data}>
+      <SearchPageComponent {...props} />
+    </SearchQueryProvider>
+  )
 }
 export default SearchPage

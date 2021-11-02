@@ -1,4 +1,5 @@
 export type Area = '東京' | '大阪' | '名古屋' | '横浜' | '仙台' | '札幌'
+export type SearchQueryKey = 'keyword' | 'maxPrice' | 'area'
 
 export type SearchQuery = {
   // キーワード検索
