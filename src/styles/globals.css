@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+ul,
+li {
+  list-style-type: none;
+}
+
+p {
+  margin: 0;
+  color: #333;
+}
