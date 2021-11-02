@@ -1,5 +1,7 @@
 import { VFC } from 'react'
 import { GetServerSidePropsContext } from 'next'
+import { useRouter } from 'next/router'
+
 import {
   SearchPage as SearchPageComponent,
   Props,
@@ -17,6 +19,8 @@ export const getServerSideProps = async (
 }
 
 const SearchPage: VFC<Props> = (props) => {
-  return <SearchPageComponent {...props} />
+  const router = useRouter()
+
+  return <SearchPageComponent {...props} searchQuery={router.query} />
 }
 export default SearchPage
