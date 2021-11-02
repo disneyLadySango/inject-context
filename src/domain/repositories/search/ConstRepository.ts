@@ -24,7 +24,7 @@ export class ConstSearchRoomRepository implements SearchRoomRepository {
           if (!equalArea) return false
         }
         return true
-      })
+      }),
     )
   }
 

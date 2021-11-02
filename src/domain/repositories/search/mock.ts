@@ -21,7 +21,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     price: 10000,
     description:
       '海の見える立地の古民家なスペースです。海辺ではBBQなども可能です。',
-    image: 'images/rooms/001.jpg',
+    image: '/images/rooms/001.jpg',
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     area: '東京',
     price: 1000000,
     description: '皆さんご存知の東京タワーを貸し切りできます。',
-    image: 'images/rooms/002.jpg',
+    image: '/images/rooms/002.jpg',
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     price: 9000,
     description:
       '駅のホームを電車の営業時間外の間使えます。撮影向きです。飲食はご遠慮ください。',
-    image: 'images/rooms/003.jpg',
+    image: '/images/rooms/003.jpg',
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     price: 5000,
     description:
       '雪まつりの展示スペースをお貸しします。個人制作物の展示などでご利用ください。期間限定販売です。',
-    image: 'images/rooms/004.jpg',
+    image: '/images/rooms/004.jpg',
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     area: '仙台',
     price: 1000,
     description: '田んぼのスペースです。田植えの体験や撮影などで是非',
-    image: 'images/rooms/005.jpg',
+    image: '/images/rooms/005.jpg',
   },
   {
     id: 6,
@@ -64,7 +64,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     price: 40000,
     description:
       '道頓堀にあるパーティールームです。カラオケ施設なども用意あります',
-    image: 'images/rooms/006.jpg',
+    image: '/images/rooms/006.jpg',
   },
   {
     id: 7,
@@ -73,7 +73,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     price: 20000,
     description:
       'お肉屋さんが運営しているスペースです。焼肉パーティやBBQなどで使う場合はお肉もご用意します。',
-    image: 'images/rooms/007.jpg',
+    image: '/images/rooms/007.jpg',
   },
   {
     id: 8,
@@ -81,7 +81,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     area: '東京',
     price: 7000,
     description: '動物と触れ合えます。撮影OKです。',
-    image: 'images/rooms/008.jpg',
+    image: '/images/rooms/008.jpg',
   },
   {
     id: 9,
@@ -90,7 +90,7 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     price: 800,
     description:
       '横浜の夜景を楽しむことができます。撮影のほかイベントなどでも利用可能です。',
-    image: 'images/rooms/009.jpg',
+    image: '/images/rooms/009.jpg',
   },
   {
     id: 10,
@@ -99,6 +99,6 @@ export const ROOM_DATA: ReadonlyArray<Room> = [
     price: 6000,
     description:
       'キャンプ場です。BBQもできます。材料などはご自身でご用意ください。',
-    image: 'images/rooms/010.jpg',
+    image: '/images/rooms/010.jpg',
   },
 ]
