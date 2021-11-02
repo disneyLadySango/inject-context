@@ -14,7 +14,7 @@ export class SearchRoomService {
     const { uid, ...searchQuery } = param
     const query = await this.searchRoomRepository.findQueryInfo(uid)
     const roomList = await this.searchRoomRepository.findList(
-      query || searchQuery
+      query || searchQuery,
     )
     return {
       results: roomList,
