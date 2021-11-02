@@ -1,7 +1,7 @@
 import { VFC } from 'react'
 import styled from 'styled-components'
 
-import { SearchQuery, SearchResponse } from '@/types/search'
+import { SearchResponse } from '@/types/search'
 
 import { SearchFilter } from './components/SearchFilter'
 import { RoomCard } from './components/RoomCard'
@@ -20,10 +20,9 @@ const StyledRoomCardWrap = styled.li`
 `
 export const SearchPage: VFC<{
   data: SearchResponse
-  searchQuery: SearchQuery
-}> = ({ data, searchQuery }) => (
+}> = ({ data }) => (
   <StyledSearchPage>
-    <SearchFilter {...searchQuery} />
+    <SearchFilter />
     <StyledRoomCardList>
       {data.results.map((room) => (
         <StyledRoomCardWrap key={room.id}>
