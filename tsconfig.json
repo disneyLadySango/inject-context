@@ -23,7 +23,9 @@
       "@/components/*": ["src/components/*"],
       "@/types/*": ["./src/types/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/domain/*": ["./src/domain/*"]
+      "@/domain/*": ["./src/domain/*"],
+      "@/context/*": ["./src/context/*"]
+
     }
   },
   "include": [
