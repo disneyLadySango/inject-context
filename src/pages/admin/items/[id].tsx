@@ -1,15 +1,16 @@
 import { VFC } from 'react'
 import { GetServerSidePropsContext } from 'next'
 
-import { ItemFormPage } from '@/components/ItemFormPage'
-import { ItemFormProvider } from 'src/context/ItemForm'
+import { ItemFormPage, ItemFormProvider } from '@/components/ItemFormPage'
 import { ItemResponse } from '@/types/item'
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
-  const { resolvedUrl, req } = context
-  const result = await fetch(`http://${req.headers.host}/api/${resolvedUrl}`)
+  const { query, req } = context
+  const result = await fetch(
+    `http://${req.headers.host}/api/admin/items/${query.id}`,
+  )
   if (result.status !== 200) {
     return {
       notFound: true,

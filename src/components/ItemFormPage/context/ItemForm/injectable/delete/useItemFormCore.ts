@@ -26,16 +26,23 @@ export const useItemFormCore = (data: ItemResponse) => {
     push('http://localhost:3000/admin/items')
   }, [query.id, data.item, push])
 
-  const states = useMemo(
+  const form = useMemo(
     () => ({
-      formDisabled: true,
+      disabled: true,
       defaultItem: data.item,
-      buttonText: '削除する',
-      buttonDisabled: false,
+      dispatch,
     }),
-    [data.item],
+    [data.item, dispatch],
   )
-  const actions = useMemo(() => ({ dispatch, onSubmit }), [dispatch, onSubmit])
 
-  return [states, actions] as const
+  const button = useMemo(
+    () => ({
+      disabled: false,
+      text: '削除する',
+      onSubmit,
+    }),
+    [onSubmit],
+  )
+
+  return [form, button] as const
 }
