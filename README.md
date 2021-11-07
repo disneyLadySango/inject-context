@@ -1,38 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# リポジトリについて
+このリポジトリでは、React Contextで関数の挙動を切り替えるサンプルの実装を行なっています。
 
-## Getting Started
+## Dependency
+- Node.js@14.17.3
 
-First, run the development server:
+- React@17
+- Next.js@12
+- styled-components@5
+- Prisma@3
+- PostgresSQL@12
+- Docker@19
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# 使い方
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. `yarn install --frozen-lockfile`で必要なライブラリを取得
+2. `docker-compose up`でDBを立ち上げます
+3. `yarn prisma migrate dev --name init --preview-feature` を実行しテーブルを登録します
+4. `node ./prisma/defaultDataSeed.js`を実行しDBへ初期データを登録します
+5. `yarn dev`でNext.jsを立ち上げます
+6. [http://localhost:3000](http://localhost:3000)へアクセスします
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 一覧ページ
+[http://localhost:3000/admin/items](http://localhost:3000/admin/items)でアクセス可能です。
+Itemテーブルへ登録されている一覧のデータが表示されます。
+キーワード/最大価格/エリアの３つでデータの絞り込みが可能です。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+この画面から登録/編集/削除の画面に遷移可能です。
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## 登録/編集/削除画面
+一覧ページのボタンから遷移してください。
+登録の場合は、データは未入力の状態です。
+編集の場合は、データが入力された状態です。
 
-To learn more about Next.js, take a look at the following resources:
+上記２つはすべての項目が必須ですので、未入力の場合は確定ボタンが活性化しません。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+削除の場合は、データは入力された状態です。
+ただし値の変更はできません。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+# Contextを使った関数の挙動変更の実装
+`/src/components/ItemFormPage/context/ItemForm`の実装をご確認ください。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Credit
-画像のリンクは下記からお借りしています
-https://www.photock.jp/
+またこちらの実装に関する説明は[noteアカウント](https://note.com/gota_disney)の記事で行っておりますので、そちらをご確認ください。
