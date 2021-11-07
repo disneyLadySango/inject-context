@@ -25,7 +25,6 @@
       "@/styles/*": ["./src/styles/*"],
       "@/domain/*": ["./src/domain/*"],
       "@/context/*": ["./src/context/*"]
-
     }
   },
   "include": [

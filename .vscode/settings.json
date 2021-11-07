@@ -26,6 +26,9 @@
   "[typescriptreact]": {
     "editor.formatOnSave": true
   },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
   "editor.lineNumbers": "on",
   "editor.rulers": [
     80
