@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction, useCallback, useState, VFC } from 'react'
+import { useRouter } from 'next/router'
 
 import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
 
-import { SearchQuery, Area } from '@/types/search'
+import { SearchQuery, Area, SearchQueryKey } from '@/types/item'
 
 import * as Presenter from './SearchFilterPresenter'
-import { useSearchQuery } from 'src/context/SearchQuery'
 
 const KeywordInput: VFC<{
   keyword: string | undefined
@@ -94,13 +94,41 @@ const AreaSelect: VFC<{
 }
 
 export const SearchFilter: VFC = () => {
-  const { push, searchQuery } = useSearchQuery()
+  const router = useRouter()
+
   const [submitValue, setSubmitValue] = useState<SearchQuery>({
-    ...searchQuery,
+    keyword:
+      typeof router.query.keyword === 'string'
+        ? router.query.keyword
+        : undefined,
+    maxPrice:
+      typeof router.query.maxPrice === 'string' && router.query.maxPrice !== '0'
+        ? parseInt(router.query.maxPrice)
+        : undefined,
+    area:
+      typeof router.query.area === 'string'
+        ? (router.query.area as Area)
+        : undefined,
   })
   const onSubmit = useCallback(() => {
-    push(submitValue)
-  }, [push, submitValue])
+    const { keyword, maxPrice, area } = submitValue
+    const query = Object.keys(submitValue).reduce(
+      (current: SearchQuery, key) => {
+        const value = submitValue[key as SearchQueryKey]
+        if (value) {
+          // @ts-ignore
+          current[key as SearchQueryKey] = value
+        }
+        return current
+      },
+      {} as SearchQuery,
+    )
+
+    router.push({
+      pathname: '/admin/items',
+      query,
+    })
+  }, [router, submitValue])
 
   return (
     <Presenter.SearchFilter onClick={onSubmit}>
