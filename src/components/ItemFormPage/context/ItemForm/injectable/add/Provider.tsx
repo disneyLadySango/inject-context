@@ -9,9 +9,9 @@ export const ItemFormProvider: VFC<{
   data: ItemResponse
   children: ReactNode
 }> = ({ data, children }) => {
-  const [states, actions] = useItemFormCore(data)
+  const [form, button] = useItemFormCore(data)
   return (
-    <Provider states={states} actions={actions}>
+    <Provider form={form} button={button}>
       {children}
     </Provider>
   )

@@ -26,16 +26,22 @@ export const useItemFormCore = (data: ItemResponse) => {
     push('http://localhost:3000/admin/items')
   }, [asPath, submitValue, push])
 
-  const states = useMemo(
+  const form = useMemo(
     () => ({
-      formDisabled: false,
+      disabled: false,
       defaultItem: data.item as ItemValueType,
-      buttonText: '更新する',
-      buttonDisabled: !validateSubmitValue(submitValue),
+      dispatch,
     }),
-    [data, submitValue],
+    [data.item, dispatch],
   )
-  const actions = useMemo(() => ({ dispatch, onSubmit }), [dispatch, onSubmit])
+  const button = useMemo(
+    () => ({
+      disabled: !validateSubmitValue(submitValue),
+      text: '更新する',
+      onSubmit,
+    }),
+    [submitValue, onSubmit],
+  )
 
-  return [states, actions] as const
+  return [form, button] as const
 }
