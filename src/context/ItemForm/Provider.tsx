@@ -1,11 +1,11 @@
 import { ReactNode, VFC } from 'react'
 
-import { SearchResponse } from '@/types/search'
+import { ItemResponse } from '@/types/item'
 
 import { useInjectionProvider } from './useInjectionProvider'
 
-export const SearchQueryProvider: VFC<{
-  data: SearchResponse
+export const ItemFormProvider: VFC<{
+  data: ItemResponse
   children: ReactNode
 }> = ({ data, children }) => {
   const Provider = useInjectionProvider()
